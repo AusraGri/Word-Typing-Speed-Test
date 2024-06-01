@@ -1,0 +1,22 @@
+header {
+    border-bottom: solid;
+    border-width: 1px;
+}
+#timer{
+    font-size: 30px;
+}
+.top{
+    align-items: center;
+    max-width: 400px;
+}
+.top .col {
+background-color: antiquewhite;
+text-align: center;
+}
+#restart, #reset {
+background-color: rgb(158, 245, 141);
+padding: 10px;
+border-radius: 20px;
+border-style: none;
+
+}

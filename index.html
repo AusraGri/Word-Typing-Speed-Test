@@ -6,29 +6,38 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="./styles/index.css">
+        <link rel="stylesheet" href="./styles/footer.css">
+        <link rel="stylesheet" href="./styles/header.css">
+        <link rel="stylesheet" href="./styles/typingText.css">
     </head>
     <body>
         <header>
-            <div class="container">
+            <div class="container top">
                 <div class="col">
+                    <div>TIMER</div>
                     <div id="timer"></div>
                 </div>
                 <div class="col">
-                    <button>try again</button>
+                    <button id="restart">RESTART</button>
+                </div>
+                <div class="col">
+                    <button id="reset">RESET</button>
                 </div>
             </div>
         </header>
         <main>
             <div class="container">
-                <div class="col text">
+                <div class="col text example">
                 </div>
             </div>
         </main>
         <footer>
-            <canvas id="progressChart" style="width:100%;max-width:700px"></canvas>
+            <div class="container">
+                <canvas id="progressChart"></canvas>
+            </div>
         </footer>
-        <script type="module" src="text.js"></script>
+        <script type="module" src="./scripts/index.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     </body>

@@ -1,0 +1,13 @@
+footer{
+    border-top: solid;
+    border-width: 1px;
+}
+footer .container{
+    align-items: center;
+    justify-content: center;
+}
+#progressChart{
+    flex:1;
+    background-color: rgb(211, 210, 210);
+    max-width: 600px;
+}
