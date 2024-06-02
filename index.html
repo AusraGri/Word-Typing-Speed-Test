@@ -3,42 +3,52 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Typing Speed Test</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="./styles/index.css">
         <link rel="stylesheet" href="./styles/footer.css">
         <link rel="stylesheet" href="./styles/header.css">
         <link rel="stylesheet" href="./styles/typingText.css">
+        <link rel="stylesheet" href="./styles/alertMessages.css">
     </head>
     <body>
-        <header>
-            <div class="container top">
-                <div class="col">
-                    <div>TIMER</div>
-                    <div id="timer"></div>
+        <div class="page">
+            <header>
+                <div class="container top">
+                    <div class="col">
+                        <div>TIMER</div>
+                        <div id="timer">0</div>
+                    </div>
+                    <div class="col">
+                        <button class="tooltip button" id="restart">
+                            RESTART
+                            <span class="tooltiptext">Or press "Enter" key</span>
+                        </button>
+                    </div>
+                    <div class="col">
+                        <button  class="tooltip button" id="reset">
+                            RESET
+                            <span class="tooltiptext">Or press "Esc" key</span>
+                        </button>
+                    </div>
                 </div>
-                <div class="col">
-                    <button id="restart">RESTART</button>
+            </header>
+            <div class="alertMessages" id="alert"></div>
+            <main>
+                <div class="container">
+                    <div class="col text hide-scroll">
+                    </div>
                 </div>
-                <div class="col">
-                    <button id="reset">RESET</button>
+            </main>
+            <footer>
+                <div class="container">
+                    <canvas id="progressChart"></canvas>
                 </div>
-            </div>
-        </header>
-        <main>
-            <div class="container">
-                <div class="col text example">
-                </div>
-            </div>
-        </main>
-        <footer>
-            <div class="container">
-                <canvas id="progressChart"></canvas>
-            </div>
-        </footer>
+            </footer>
         <script type="module" src="./scripts/index.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        </div>
     </body>
 </html>

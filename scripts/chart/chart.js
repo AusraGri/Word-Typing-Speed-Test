@@ -1,11 +1,21 @@
+ //display user progress data in a chart, using ChartJS
+
 export default function displayProgress(data, dataElement){
-    //display user progress data in a chart
+    let slicedData;
+    if (data.length > 20){
+      slicedData = data.slice(data.length - 10)
+    }else{
+      slicedData = data
+    }
+    let number = 0
     const dates = []
     const wpm = []
     const accuracy = []
+    console.log(dates, wpm, accuracy)
     if (data){
-    data.forEach((object)=>{
-        dates.push(object.date)
+    slicedData.forEach((object)=>{
+        dates.push(number + 1)
+        number ++
         wpm.push(object.wpm)
         accuracy.push(object.accuracy)
 })
@@ -15,6 +25,7 @@ export default function displayProgress(data, dataElement){
 new Chart(dataElement, {
     type: "line",
     data: {
+      labels: dates,
       datasets: [
         {
           data: wpm,

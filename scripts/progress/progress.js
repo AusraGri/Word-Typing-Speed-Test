@@ -31,6 +31,7 @@ export default class Progress {
       return 0
     }
   }
+
   static dateNow() {
     const d = new Date()
     const date = `${d.getFullYear()}-${d.getMonth()}-${d.getDate()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
@@ -45,6 +46,7 @@ export default class Progress {
   get clear() {
     return this.#clearAllStorage()
   }
+
   #saveToLocalStorage() {
     const progressData = {
       wpm: this.wpm,
@@ -59,12 +61,14 @@ export default class Progress {
     progressArray.push(progressData)
     localStorage.setItem("userProgress", JSON.stringify(progressArray))
   }
+
   #loadProgress() {
     //load user progress
     const userProgressData =
       JSON.parse(localStorage.getItem("userProgress")) || []
     return userProgressData
   }
+
   #clearAllStorage() {
     if (
       typeof localStorage !== "undefined" &&
