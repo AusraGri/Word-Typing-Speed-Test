@@ -11,7 +11,6 @@ export default function displayProgress(data, dataElement){
     const dates = []
     const wpm = []
     const accuracy = []
-    console.log(dates, wpm, accuracy)
     if (data){
     slicedData.forEach((object)=>{
         dates.push(number + 1)

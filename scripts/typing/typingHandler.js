@@ -17,7 +17,7 @@ export const typingTest = {
   handleKeydown: function (event) {
     if (this.enabled) {
       this.onKeydownEvent(event)
-    } else if (!this.enabled) {
+    } else{
       console.log("key handler is not enabled")
     }
   },

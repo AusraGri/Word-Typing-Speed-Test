@@ -3,8 +3,8 @@ body{
 }
 .container{
     display: flex;
-    margin: 10px;
-    padding:10px;
+    margin: 5px;
+    padding:5px;
     justify-content: center;
 }
 .col{

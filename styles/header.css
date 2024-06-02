@@ -9,7 +9,10 @@ header {
 .top{
     align-items: center;
     justify-content: center;
+    border-top: solid;
+    border-width: 1px;
 }
+
 .top .col {
 text-align: center;
 max-width: fit-content;

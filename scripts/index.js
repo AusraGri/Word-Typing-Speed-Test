@@ -1,6 +1,6 @@
 import Progress from "./progress/progress.js"
 import displayProgress from "./chart/chart.js"
-import { typingTimer } from "./timer/timer.js"
+import { timeCounter } from "./timer/timeCounter.js"
 import createTextDivs from "./text/index.js"
 import { typingTest } from "./typing/typingHandler.js"
 import noticeProgress from "./progress/progressNotice.js"
@@ -11,6 +11,7 @@ import {
   showResults,
 } from "./progress/results.js"
 import { scrollToHighlighted } from "./page/textScrolling.js"
+import { typingTime } from "./timer/typingTime.js"
 
 document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("keydown", keydownFunctions)
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Initializes the typing text part: gets text from API, creates divs, adds listener
 async function wordTypingTest(pageElement) {
-  let typingTime = 60
+  let time = 60
   const typingElement = pageElement.querySelector(".text")
   const alertElement = pageElement.querySelector("#alert")
   const chartElement = pageElement.querySelector("#progressChart")
@@ -47,18 +48,19 @@ async function wordTypingTest(pageElement) {
   const textContainer = pageElement.querySelector(".textContainer")
   typingTest.init(textContainer)
 
-  typingTimer.timerElement = timerElement
-  typingTimer.showTimer()
+  timeCounter.timerElement = timerElement
+  timeCounter.showTimer()
 
   pageElement.addEventListener(
     "keydown",
-    eventHandling(typingTime, chartElement, pageElement)
+    eventHandling(time, chartElement, pageElement)
   )
 }
 
 function reset() {
+  typingTime.clearTimeout()
   typingTest.reset()
-  typingTimer.reset()
+  timeCounter.reset()
   alertMessage.display("Start typing to begin the test!")
 }
 
@@ -87,19 +89,16 @@ function displayCurrentTypingValues(wpm, accuracy) {
   alertMessage.display(message)
 }
 
-// keydown listener event handler
 function eventHandling(seconds, chartElement, pageElement) {
   return function (event) {
     if (typingTest.enabled) {
       const values = currentTypingValues()
       displayCurrentTypingValues(values.wpm, values.accuracy)
     }
-    if (!typingTimer.timerStarted) {
-      typingTimer.startTimer(seconds)
+    if (!timeCounter.timerStarted) {
+      timeCounter.startTimer(seconds)
       typingTest.enabled = true
-      setTimeout(() => {
-        finalizeTypingTest(chartElement)
-      }, seconds * 1000)
+      typingTime.setTimeout(60, () => finalizeTypingTest(chartElement))
     }
     scrollToHighlighted(pageElement)
     typingTest.handleKeydown(event)

@@ -1,4 +1,4 @@
-export const typingTimer = {
+export const timeCounter = {
   counting: false,
   seconds: 0,
   timerElement: null,
@@ -44,6 +44,8 @@ export const typingTimer = {
     this.counting = false
     this.seconds = 0
     this.timerStarted = false
+    clearInterval(this.intervalId)
+    this.intervalId = null
     this.showTimer()
   },
 }
