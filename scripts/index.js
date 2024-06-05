@@ -98,7 +98,7 @@ function eventHandling(seconds, chartElement, pageElement) {
     if (!timeCounter.timerStarted) {
       timeCounter.startTimer(seconds)
       typingTest.enabled = true
-      typingTime.setTimeout(60, () => finalizeTypingTest(chartElement))
+      typingTime.setTimeout(seconds, () => finalizeTypingTest(chartElement))
     }
     scrollToHighlighted(pageElement)
     typingTest.handleKeydown(event)

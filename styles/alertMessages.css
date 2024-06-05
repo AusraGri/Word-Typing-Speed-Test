@@ -21,12 +21,12 @@
   background-color: rgb(235, 232, 232);
   color: #6d6b6b;
   text-align: center;
-  border-radius: 0.25em;
+  border-radius: 1px;
   white-space: nowrap;
   position: absolute;
   z-index: 1;
   top: 100%;
-  left: 80%;
+  left: 0%;
   transition-property: visibility;
   transition-delay: 0s;
 }
@@ -34,4 +34,10 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
   transition-delay: 0.3s;
+}
+
+@media (width <= 500px) {
+  .tooltip:hover .tooltiptext {
+    visibility: hidden;
+  }
 }

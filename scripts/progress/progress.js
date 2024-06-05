@@ -21,6 +21,7 @@ export default class Progress {
     try {
       let minutes = seconds / 60
       const wpm = correct / 5 / minutes
+
       if (wpm < 0) {
         throw new Error(`WPM can't be negative: ${wpm}`)
       } else {
@@ -28,6 +29,7 @@ export default class Progress {
       }
     } catch (err) {
       console.log(`ERROR: ${err}`)
+
       return 0
     }
   }
